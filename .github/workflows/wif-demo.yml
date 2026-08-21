@@ -21,7 +21,7 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v2
 
       - name: List bucket contents
-        run: gsutil ls gs://wif-demo-bucket-yourname
+        run: gsutil ls gs://gcp-wif-demo
 
       - name: Read the test file
-        run: gsutil cat gs://wif-demo-bucket-yourname/hello.txt
+        run: gsutil cat gs://demo.txt
