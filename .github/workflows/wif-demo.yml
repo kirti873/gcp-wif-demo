@@ -1,0 +1,17 @@
+name: WIF Demo
+on:
+workflow_dispatch:
+permissions:
+id-token: write
+contents: read
+jobs:
+demo:
+runs-on: ubuntu-latest
+steps:- id: auth
+uses: google-github-actions/auth@v3
+with:
+project_id: demoproject-506118
+workload_identity_provider: projects/840226586795/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+service_account: github-actions-sa@demoproject-506118.iam.gserviceaccount.com- uses: google-github-actions/setup-gcloud@v2- name: List bucket contents
+run: gsutil ls gs://wif-demo-bucket-yourname- name: Read the test file
+run: gsutil cat gs://wif-demo-bucket-yourname/hello.txt
